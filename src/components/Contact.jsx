@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Send, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Send, Facebook, Linkedin, Instagram, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -143,12 +143,17 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <Mail className="text-primary" size={24} />
+                  <Phone className="text-primary" size={24} />
                   <div>
-                    <p className="text-sm text-gray-400">Website</p>
-                    <a href="https://fear.in" className="text-lg hover:text-primary transition-colors">
-                      fear.in
-                    </a>
+                    <p className="text-sm text-gray-400">Phone</p>
+                    <div className="space-y-1">
+                      <a href="tel:+918125644388" className="text-lg hover:text-primary transition-colors block">
+                        +91 81256 44388
+                      </a>
+                      <a href="tel:+919108753694" className="text-lg hover:text-primary transition-colors block">
+                        +91 91087 53694
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -157,16 +162,20 @@ const Contact = () => {
                 <p className="text-gray-400 mb-4">Follow me on social media:</p>
                 <div className="flex gap-4">
                   <motion.a 
-                    href="#" 
+                    href="https://www.facebook.com/profile.php?id=61585103735284" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glass p-3 rounded-lg transition-all duration-300 cursor-hover"
-                    data-cursor="GitHub"
+                    data-cursor="Facebook"
                     whileHover={{ scale: 1.1, y: -5, boxShadow: '0 10px 30px rgba(0, 217, 255, 0.3)' }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Github size={24} />
+                    <Facebook size={24} />
                   </motion.a>
                   <motion.a 
-                    href="#" 
+                    href="https://www.linkedin.com/feed/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glass p-3 rounded-lg transition-all duration-300 cursor-hover"
                     data-cursor="LinkedIn"
                     whileHover={{ scale: 1.1, y: -5, boxShadow: '0 10px 30px rgba(0, 217, 255, 0.3)' }}
@@ -175,7 +184,9 @@ const Contact = () => {
                     <Linkedin size={24} />
                   </motion.a>
                   <motion.a 
-                    href="#" 
+                    href="https://www.instagram.com/fear_agency/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glass p-3 rounded-lg transition-all duration-300 cursor-hover"
                     data-cursor="Instagram"
                     whileHover={{ scale: 1.1, y: -5, boxShadow: '0 10px 30px rgba(0, 217, 255, 0.3)' }}

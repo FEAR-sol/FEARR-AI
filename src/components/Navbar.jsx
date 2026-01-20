@@ -81,18 +81,6 @@ const Navbar = () => {
                 </motion.div>
               </Link>
             ))}
-
-            {/* CTA Button */}
-            <Link to="contact" smooth={true} offset={-80} duration={500}>
-              <motion.button
-                className="glass px-6 py-2 rounded-full text-sm font-semibold hover:glow transition-all duration-300 cursor-hover"
-                data-cursor="Get Started"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Started
-              </motion.button>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}

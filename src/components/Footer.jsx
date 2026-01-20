@@ -27,7 +27,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span>© 2025 FEAR — Built with</span>
+            <span>© FEAR 2026 </span>
             <motion.div
               animate={{
                 scale: [1, 1.2, 1],
@@ -39,9 +39,7 @@ const Footer = () => {
                 ease: "easeInOut"
               }}
             >
-              <Heart size={16} fill="currentColor" />
             </motion.div>
-            <span>by FEAR Agency</span>
           </motion.div>
 
           <motion.div 
@@ -51,32 +49,25 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {[
-              { icon: Mail, label: "Email", delay: 0 },
-              { icon: Send, label: "Contact", delay: 0.1 },
-              { icon: Heart, label: "About", delay: 0.2 }
-            ].map(({ icon: Icon, label, delay }) => (
-              <motion.a 
-                key={label}
-                href="#" 
-                className="text-gray-400 transition-colors cursor-hover relative group"
-                data-cursor={label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 + delay }}
-                whileHover={{ 
-                  y: -5, 
-                  color: '#00d9ff',
-                  scale: 1.2
-                }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Icon size={20} />
-                
-
-              </motion.a>
-            ))}
+            <motion.a 
+              href="/TERMS AND POLICIES (2).pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-primary transition-colors cursor-hover"
+              data-cursor="Terms & Conditions"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ 
+                y: -2, 
+                color: '#00d9ff',
+                scale: 1.05
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Terms & Conditions
+            </motion.a>
           </motion.div>
         </div>
       </div>

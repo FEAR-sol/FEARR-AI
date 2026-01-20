@@ -35,30 +35,6 @@ const Projects = () => {
       live: '#',
       github: '#',
     },
-    {
-      title: 'Fraud Detection AI',
-      description: 'Real-time fraud detection system analyzing transactions with 98% accuracy. Prevented $2M+ in fraudulent activities.',
-      tech: ['PyTorch', 'Scikit-learn', 'AWS', 'Python'],
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
-      live: '#',
-      github: '#',
-    },
-    {
-      title: 'AI Voice Assistant',
-      description: 'Custom voice AI for e-commerce with natural conversations. Handles orders, queries, and recommendations seamlessly.',
-      tech: ['ElevenLabs', 'GPT-4', 'Whisper', 'Python'],
-      image: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&q=80',
-      live: '#',
-      github: '#',
-    },
-    {
-      title: 'Document Processing AI',
-      description: 'Automated invoice and document processing system. Extracts data from PDFs with 99% accuracy, saving 30+ hours weekly.',
-      tech: ['OpenAI', 'Python', 'OCR', 'MongoDB'],
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80',
-      live: '#',
-      github: '#',
-    },
   ];
 
   return (

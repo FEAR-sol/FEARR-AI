@@ -1,33 +1,43 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 const TiltCard = ({ children, className = '' }) => {
   const ref = useRef(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const animationFrame = useRef(null);
 
-  const handleMouseMove = (e) => {
-    if (!ref.current) return;
+  const handleMouseMove = useCallback((e) => {
+    if (!ref.current || animationFrame.current) return;
     
-    const card = ref.current;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateXValue = ((y - centerY) / centerY) * -10;
-    const rotateYValue = ((x - centerX) / centerX) * 10;
-    
-    setRotateX(rotateXValue);
-    setRotateY(rotateYValue);
-  };
+    animationFrame.current = requestAnimationFrame(() => {
+      const card = ref.current;
+      if (!card) return;
+      
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateXValue = ((y - centerY) / centerY) * -10;
+      const rotateYValue = ((x - centerX) / centerX) * 10;
+      
+      setRotateX(rotateXValue);
+      setRotateY(rotateYValue);
+      animationFrame.current = null;
+    });
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
+    if (animationFrame.current) {
+      cancelAnimationFrame(animationFrame.current);
+      animationFrame.current = null;
+    }
     setRotateX(0);
     setRotateY(0);
-  };
+  }, []);
 
   return (
     <motion.div

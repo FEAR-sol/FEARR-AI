@@ -1,6 +1,10 @@
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const TechMarquee = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-100px" });
+  
   const technologies = [
     { name: 'GPT-4', icon: '🤖' },
     { name: 'Claude', icon: '🧠' },
@@ -19,7 +23,7 @@ const TechMarquee = () => {
   const duplicatedTech = [...technologies, ...technologies];
 
   return (
-    <section className="py-16 bg-dark relative overflow-hidden">
+    <section ref={ref} className="py-16 bg-dark relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
       
       <div className="mb-8 text-center">
@@ -34,9 +38,9 @@ const TechMarquee = () => {
 
         <motion.div
           className="flex gap-8"
-          animate={{
+          animate={isInView ? {
             x: [0, -50 * technologies.length],
-          }}
+          } : {}}
           transition={{
             x: {
               repeat: Infinity,

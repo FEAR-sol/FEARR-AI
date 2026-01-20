@@ -122,32 +122,6 @@ const Agreement = () => {
                   I have read and agree to the terms and conditions
                 </label>
               </div>
-
-              <motion.button
-                className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 relative overflow-hidden ${
-                  agreed
-                    ? 'bg-primary text-dark cursor-hover'
-                    : 'bg-gray-700 text-gray-500 cursor-not-allowed'
-                }`}
-                disabled={!agreed}
-                data-cursor={agreed ? "Download" : ""}
-                whileHover={agreed ? { 
-                  scale: 1.02, 
-                  boxShadow: '0 10px 30px rgba(0, 217, 255, 0.4)' 
-                } : {}}
-                whileTap={agreed ? { scale: 0.98 } : {}}
-              >
-                {agreed && (
-                  <motion.span
-                    className="absolute inset-0 bg-secondary"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-                <Download size={20} className="relative z-10" />
-                <span className="relative z-10">Download Full Agreement (PDF)</span>
-              </motion.button>
             </motion.div>
           </div>
         </motion.div>

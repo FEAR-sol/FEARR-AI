@@ -10,7 +10,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 import ScrollProgress from './components/ScrollProgress';
-import CustomCursor from './components/CustomCursor';
 
 import Chatbot from './components/Chatbot';
 import TechMarquee from './components/TechMarquee';
@@ -25,7 +24,7 @@ function App() {
     try {
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 3000);
+      }, 1500);
       
       return () => clearTimeout(timer);
     } catch (err) {
@@ -54,8 +53,7 @@ function App() {
         easing="ease-out"
         extraScale={1.2}
       >
-        <CustomCursor />
-        <div className="min-h-screen bg-dark text-white cursor-none relative">
+        <div className="min-h-screen bg-dark text-white relative">
         <AnimatePresence mode="wait">
           {isLoading ? (
             <motion.div
@@ -65,9 +63,9 @@ function App() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {/* Particle Background */}
+              {/* Optimized Particle Background - Reduced from 150 to 30 */}
               <div className="absolute inset-0">
-                {[...Array(150)].map((_, i) => (
+                {[...Array(30)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute rounded-full"
@@ -122,9 +120,9 @@ function App() {
                     }}
                   />
                   
-                  {/* Particle Sphere */}
-                  {[...Array(80)].map((_, i) => {
-                    const angle = (i / 80) * Math.PI * 2;
+                  {/* Optimized Particle Sphere - Reduced from 80 to 20 */}
+                  {[...Array(20)].map((_, i) => {
+                    const angle = (i / 20) * Math.PI * 2;
                     const radius = 120;
                     return (
                       <motion.div
@@ -147,7 +145,7 @@ function App() {
                         transition={{
                           duration: 2,
                           repeat: Infinity,
-                          delay: (i / 80) * 0.5,
+                          delay: (i / 20) * 0.5,
                           ease: "easeInOut",
                         }}
                       />

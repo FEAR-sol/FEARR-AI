@@ -19,16 +19,26 @@ const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Mouse move handler
+    let animationFrame;
+    
+    // Throttled mouse move handler
     const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      if (animationFrame) return;
+      
+      animationFrame = requestAnimationFrame(() => {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth - 0.5) * 20,
+          y: (e.clientY / window.innerHeight - 0.5) * 20,
+        });
+        animationFrame = null;
       });
     };
     
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+    };
   }, []);
 
   // Split text animation
@@ -50,9 +60,9 @@ const Hero = () => {
           }} />
         </div>
 
-        {/* Enhanced Floating Particles with Trails */}
+        {/* Optimized Floating Particles - Reduced from 50 to 15 */}
         <div className="absolute inset-0 opacity-20">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute"
@@ -77,29 +87,13 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
               />
-              
-              {/* Particle Trail */}
-              <motion.div
-                className="absolute w-0.5 h-4 bg-gradient-to-t from-primary/50 to-transparent rounded-full"
-                style={{ left: '50%', top: '100%', transformOrigin: 'top' }}
-                animate={{
-                  scaleY: [0, 1, 0],
-                  opacity: [0, 0.6, 0],
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2 + 0.1,
-                  ease: "easeInOut"
-                }}
-              />
             </motion.div>
           ))}
         </div>
         
-        {/* Constellation Effect */}
+        {/* Optimized Constellation Effect - Reduced from 20 to 8 */}
         <div className="absolute inset-0 opacity-10">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(8)].map((_, i) => (
             <motion.div
               key={`constellation-${i}`}
               className="absolute w-px h-px bg-primary"

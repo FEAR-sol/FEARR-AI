@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, memo } from 'react';
 import { Brain, Zap, MessageSquare, TrendingUp, Sparkles, Shield } from 'lucide-react';
 import TiltCard from './TiltCard';
 
@@ -415,4 +415,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default memo(Services);
