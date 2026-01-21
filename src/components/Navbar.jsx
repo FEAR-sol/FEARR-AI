@@ -21,7 +21,7 @@ const Navbar = () => {
     { name: 'Services', to: 'services' },
     { name: 'Projects', to: 'projects' },
     { name: 'Contact', to: 'contact' },
-    { name: 'Back to Home', to: '#', isExternal: true },
+    { name: 'Back to Home', to: 'https://www.fearagency.in/', isExternal: true },
   ];
 
   return (
