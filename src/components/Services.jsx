@@ -63,17 +63,17 @@ const Services = () => {
     },
     {
       icon: Shield,
-      title: 'AI Security & Detection',
-      description: 'Advanced AI-powered security systems for fraud detection, threat monitoring, and anomaly identification.',
+      title: 'AI Voice Assistant',
+      description: 'Intelligent voice-powered assistants for customer service, automation, and interactive user experiences.',
       color: 'from-red-500 to-orange-500',
       features: [
-        { icon: '🔐', text: 'AI Fraud Detection Systems', detail: 'Real-time transaction monitoring and fraud prevention with AI' },
-        { icon: '🛡️', text: 'Threat & Intrusion Detection', detail: 'AI-powered network security and intrusion prevention systems' },
-        { icon: '👤', text: 'AI Face Recognition Systems', detail: 'Secure biometric authentication and identity verification' },
-        { icon: '⚠️', text: 'Behavior Anomaly Detection', detail: 'Identify unusual patterns, threats, and security breaches' },
+        { icon: '🎤', text: 'Voice Recognition Systems', detail: 'Advanced speech-to-text and natural language processing' },
+        { icon: '🗣️', text: 'Interactive Voice Response', detail: 'AI-powered conversational interfaces and voice commands' },
+        { icon: '🤖', text: 'Smart Voice Assistants', detail: 'Custom voice bots for customer support and automation' },
+        { icon: '🔊', text: 'Text-to-Speech Integration', detail: 'Natural-sounding voice synthesis and audio responses' },
       ],
-      tools: ['TensorFlow', 'OpenCV', 'PyTorch', 'YOLO', 'AWS Rekognition', 'Scikit-learn'],
-      deliverables: ['Fraud Detection', 'Face Recognition', 'Threat Detection', 'Anomaly Systems']
+      tools: ['OpenAI Whisper', 'Google Speech API', 'Azure Cognitive Services', 'Rasa', 'Twilio', 'Web Speech API'],
+      deliverables: ['Voice Recognition', 'Voice Assistants', 'Speech Synthesis', 'Voice Automation']
     },
   ];
 

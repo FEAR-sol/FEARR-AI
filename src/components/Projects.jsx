@@ -12,27 +12,19 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'AI Customer Support Bot',
-      description: 'Intelligent chatbot trained on company data, handling 1000+ queries daily with 95% accuracy. Multilingual support across 12 languages.',
+      title: 'Zorr',
+      description: 'AI-powered customer care bot for Zorr food delivery app, handling order inquiries, delivery tracking, and customer support with 95% accuracy.',
       tech: ['GPT-4', 'LangChain', 'Python', 'Vector DB'],
       image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80',
-      live: '#',
+      live: 'https://zorr-customer-care.netlify.app/',
       github: '#',
     },
     {
-      title: 'Sales Prediction System',
-      description: 'AI-powered analytics dashboard predicting sales trends with 92% accuracy. Real-time insights and automated reporting.',
-      tech: ['TensorFlow', 'Python', 'Pandas', 'Power BI'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-      live: '#',
-      github: '#',
-    },
-    {
-      title: 'AI Content Generator',
-      description: 'Automated content creation tool generating blogs, social media posts, and marketing copy. Saves 20+ hours weekly.',
+      title: 'Roww',
+      description: 'AI content generator specifically designed for Instagram reels, creating engaging scripts, captions, and content ideas for social media creators.',
       tech: ['GPT-4', 'Claude', 'React', 'Node.js'],
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-      live: '#',
+      live: 'https://roww-content.netlify.app/',
       github: '#',
     },
   ];
@@ -215,6 +207,8 @@ const Projects = () => {
                     <div className="flex gap-4">
                       <motion.a
                         href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-primary hover:text-secondary transition-colors cursor-hover"
                         data-cursor="Visit Site"
                         whileHover={{ x: 5 }}

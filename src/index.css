@@ -15,10 +15,12 @@ body {
   background-color: #0a0a0a;
   color: #ffffff;
   overflow-x: hidden;
+  position: relative;
 }
 
 html {
   scroll-behavior: smooth;
+  position: relative;
 }
 
 @layer utilities {

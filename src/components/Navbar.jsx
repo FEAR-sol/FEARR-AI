@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: 'Services', to: 'services' },
     { name: 'Projects', to: 'projects' },
     { name: 'Contact', to: 'contact' },
+    { name: 'Back to Home', to: '#', isExternal: true },
   ];
 
   return (
@@ -51,16 +52,10 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item, index) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                onSetActive={() => setActiveSection(item.to)}
-              >
-                <motion.div
+              item.isExternal ? (
+                <motion.a
+                  key={item.name}
+                  href={item.to}
                   className="relative cursor-pointer cursor-hover"
                   data-cursor={item.name}
                   initial={{ opacity: 0, y: -20 }}
@@ -68,18 +63,41 @@ const Navbar = () => {
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -2 }}
                 >
-                  <span className={`transition-colors duration-300 ${activeSection === item.to ? 'text-primary' : 'text-gray-300 hover:text-primary'}`}>
+                  <span className="text-gray-300 hover:text-primary transition-colors duration-300">
                     {item.name}
                   </span>
-                  {activeSection === item.to && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                      layoutId="activeSection"
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                </motion.div>
-              </Link>
+                </motion.a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                  onSetActive={() => setActiveSection(item.to)}
+                >
+                  <motion.div
+                    className="relative cursor-pointer cursor-hover"
+                    data-cursor={item.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ y: -2 }}
+                  >
+                    <span className={`transition-colors duration-300 ${activeSection === item.to ? 'text-primary' : 'text-gray-300 hover:text-primary'}`}>
+                      {item.name}
+                    </span>
+                    {activeSection === item.to && (
+                      <motion.div
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                        layoutId="activeSection"
+                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </motion.div>
+                </Link>
+              )
             ))}
           </div>
 
@@ -128,25 +146,40 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
             >
               {menuItems.map((item, index) => (
-                <Link
-                  key={item.name}
-                  to={item.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <motion.div
+                item.isExternal ? (
+                  <motion.a
+                    key={item.name}
+                    href={item.to}
                     className="block py-2 text-gray-300 hover:text-primary cursor-pointer transition-colors duration-300"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     whileHover={{ x: 10 }}
+                    onClick={() => setIsOpen(false)}
                   >
                     {item.name}
-                  </motion.div>
-                </Link>
+                  </motion.a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.to}
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <motion.div
+                      className="block py-2 text-gray-300 hover:text-primary cursor-pointer transition-colors duration-300"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileHover={{ x: 10 }}
+                    >
+                      {item.name}
+                    </motion.div>
+                  </Link>
+                )
               ))}
             </motion.div>
           )}
